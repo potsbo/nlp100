@@ -43,9 +43,9 @@ def fields_to_dict(fields):
 def run():
     filename = './data/020.txt'
     fields = get_template_section(filename)
-    dic = fields_to_dict(fields)
-    print(dic)
+    return fields_to_dict(fields)
 
 
 if __name__ == '__main__':
-    run()
+    dic = run()
+    print(dic)
