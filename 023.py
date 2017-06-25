@@ -10,10 +10,9 @@ lines = json.load(f)['text'].split('\n')
 category_match = re.compile(r'^\[\[Category:(.*)\]\]$')
 
 for line in lines:
-    print(line)
-    # result = category_match.search(line)
+    result = category_match.search(line)
 
-    # if result is None:
-    #     continue
+    if result is None:
+        continue
 
-    # print(result.group(1).split('|')[0])
+    print(result.group(1).split('|')[0])
