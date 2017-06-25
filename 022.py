@@ -7,7 +7,7 @@ import re
 f = open('./data/020.txt')
 lines = json.load(f)['text'].split('\n')
 
-category_match = re.compile(r'^\[\[Category:(.*)\]\]$')
+category_match = re.compile(r'^(=+)(.+?)(=+)$')
 
 for line in lines:
     result = category_match.search(line)
@@ -15,4 +15,6 @@ for line in lines:
     if result is None:
         continue
 
-    print(result.group(1).split('|')[0])
+    title = result.group(2).strip()
+    level = len(result.group(1).strip())
+    print(level, title)
