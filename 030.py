@@ -26,13 +26,15 @@ def parse_word(word):
     pos1 = elements[2]
     return { 'surface': surface, 'base': base, 'pos': pos, 'pos1': pos1 }
 
-def run():
+def sentences():
     lines = [re.sub('\n', '', line) for line in open('./data/neko.txt.mecab')]
 
     sentences = divide_into_sentences(lines)
 
     return [[parse_word(word) for word in sentence] for sentence in sentences]
 
+def run():
+    return sentences()
 
 if __name__ == '__main__':
     print(run())
