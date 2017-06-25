@@ -39,8 +39,13 @@ def fields_to_dict(fields):
 
     return dic
 
-filename = './data/020.txt'
-fields = get_template_section(filename)
-dic = fields_to_dict(fields)
 
-print(dic)
+def run():
+    filename = './data/020.txt'
+    fields = get_template_section(filename)
+    dic = fields_to_dict(fields)
+    print(dic)
+
+
+if __name__ == '__main__':
+    run()
