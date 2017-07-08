@@ -3,7 +3,7 @@
 
 nlp33 = __import__('033')
 
-def run():
+def word_counts():
     words = nlp33.words()
 
     count = {}
@@ -14,7 +14,10 @@ def run():
 
         count[key] += 1
 
-    count = sorted(count.items(), key = lambda x:x[1], reverse=True)
+    return sorted(count.items(), key = lambda x:x[1], reverse=True)
+
+def run():
+    count = word_counts()
     bases = [c[0][0] for c in count]
     return bases
 
