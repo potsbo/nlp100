@@ -7,8 +7,9 @@ import matplotlib.pyplot as plt
 nlp36 = __import__('036')
 
 def run():
-    x = np.array([w[1] for w in nlp36.word_counts()])
-    plt.hist(x)
+    counts = [w[1] for w in nlp36.word_counts()]
+    x = np.array(counts)
+    plt.hist(x, bins = 100)
     plt.show()
 
 if __name__ == '__main__':
