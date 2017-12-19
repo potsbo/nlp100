@@ -17,5 +17,5 @@ if extracted is None:
     'イギリス not found.'
     exit()
 
-with open('./result/020.txt', 'w') as outfile:
+with open('./data/020.txt', 'w') as outfile:
     outfile.write(json.dumps(extracted, ensure_ascii=False))

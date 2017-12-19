@@ -18,3 +18,6 @@ data/neko.txt:
 
 data/neko.txt.mecab: data/neko.txt
 	mecab ./data/neko.txt > ./data/neko.txt.mecab
+
+data/020.txt: data/jawiki-country.json
+	python 020.py
