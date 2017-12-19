@@ -28,4 +28,3 @@ data/neko.txt.mecab: data/neko.txt data
 # Chapter 5
 data/neko.txt.cabocha: data/neko.txt data
 	cabocha $< > $@
-
