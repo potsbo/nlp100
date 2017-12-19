@@ -1,11 +1,8 @@
 HOST := http://www.cl.ecei.tohoku.ac.jp/nlp100
 
-data:
-	mkdir -p $@
-
 # Raw data
-data/hightemp.txt data/neko.txt: data
-	curl $(HOST)/$@ > $@
+data/hightemp.txt data/neko.txt:
+	mkdir -p data && curl $(HOST)/$@ > $@
 
 # Chapter 2
 data/col1.txt data/col2.txt: data/hightemp.txt
@@ -13,7 +10,7 @@ data/col1.txt data/col2.txt: data/hightemp.txt
 
 # Chapter 3
 data/jawiki-country.json.gz: data
-	curl $(HOST)/$@ > $@
+	make -p data && curl $(HOST)/$@ > $@
 
 data/jawiki-country.json: data/jawiki-country.json.gz
 	gzip -d < $< > $@
