@@ -19,7 +19,9 @@ class Morph:
 
 
 def run():
-    words  = nlp30.sentences()[2]
+    words  = nlp30.sentences(path='./data/neko.txt.cabocha')[2]
+    words  = [w for w in words if w[0] != '*']
+    words  = [nlp30.parse_word(w) for w in words if w[0] != '*']
     morphs = [Morph(w) for w in words]
     strs   = [m.string() for m in morphs]
     print(strs)
