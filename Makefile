@@ -7,7 +7,7 @@ data/col1.txt data/col2.txt: data/hightemp.txt data
 	python 012.py
 
 data/jawiki-country.json.gz: data
-	curl $(HOST)/$< > $@
+	curl $(HOST)/$@ > $@
 
 data/jawiki-country.json: data/jawiki-country.json.gz data
 	gzip -d $<
