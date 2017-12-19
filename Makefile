@@ -16,7 +16,10 @@ data/hightemp.txt data/neko.txt: data
 	curl $(HOST)/$@ > $@
 
 data/neko.txt.mecab: data/neko.txt data
-	mecab $@ > $@
+	mecab $< > $@
+
+data/neko.txt.cabocha: data/neko.txt data
+	cabocha $< > $@
 
 data/020.txt: data/jawiki-country.json data
 	python 020.py
