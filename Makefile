@@ -8,23 +8,23 @@ data/hightemp.txt data/neko.txt: data
 	curl $(HOST)/$@ > $@
 
 # Chapter 2
-data/col1.txt data/col2.txt: data/hightemp.txt data
+data/col1.txt data/col2.txt: data/hightemp.txt
 	python 012.py
 
 # Chapter 3
 data/jawiki-country.json.gz: data
 	curl $(HOST)/$@ > $@
 
-data/jawiki-country.json: data/jawiki-country.json.gz data
+data/jawiki-country.json: data/jawiki-country.json.gz
 	gzip -d < $< > $@
 
-data/020.txt: data/jawiki-country.json data
+data/020.txt: data/jawiki-country.json
 	python 020.py
 
 # Chapter 4
-data/neko.txt.mecab: data/neko.txt data
+data/neko.txt.mecab: data/neko.txt
 	mecab $< > $@
 
 # Chapter 5
-data/neko.txt.cabocha: data/neko.txt data
+data/neko.txt.cabocha: data/neko.txt
 	cabocha $< > $@
