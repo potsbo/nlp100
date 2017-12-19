@@ -11,6 +11,7 @@ data/hightemp.txt data/neko.txt: data
 data/col1.txt data/col2.txt: data/hightemp.txt data
 	python 012.py
 
+# Chapter 3
 data/jawiki-country.json.gz: data
 	curl $(HOST)/$@ > $@
 
