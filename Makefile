@@ -1,7 +1,4 @@
-data/col1.txt: data/hightemp.txt
-	python 012.py
-
-data/col2.txt: data/hightemp.txt
+data/col1.txt data/col2.txt: data/hightemp.txt
 	python 012.py
 
 data/jawiki-country.json.gz:
