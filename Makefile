@@ -24,4 +24,4 @@ data/neko.txt.mecab: data/neko.txt
 
 # Chapter 5
 data/neko.txt.cabocha: data/neko.txt
-	cabocha $< > $@
+	cabocha -f1 $< > $@
