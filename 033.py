@@ -4,7 +4,7 @@
 nlp30 = __import__('030')
 
 def words():
-    sentences = nlp30.sentences()
+    sentences = nlp30.analyzed_sentences()
     return [word for sentence in sentences for word in sentence]
 
 def run():

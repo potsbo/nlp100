@@ -18,7 +18,7 @@ def find_no(sentence):
 
 def run():
     noes = []
-    for sentence in nlp30.sentences():
+    for sentence in nlp30.analyzed_sentences():
         phrases = find_no(sentence)
         noes.append(phrases)
 

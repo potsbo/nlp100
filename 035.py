@@ -27,7 +27,7 @@ def find_chains(sentence):
 
 def run():
     chains = []
-    for sentence in nlp30.sentences():
+    for sentence in nlp30.analyzed_sentences():
         chains.append(find_chains(sentence))
     return [p for ps in chains for p in ps]
 

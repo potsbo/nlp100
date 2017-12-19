@@ -29,9 +29,10 @@ def parse_word(word):
 def sentences(path='./data/neko.txt.mecab'):
     lines = [re.sub('\n', '', line) for line in open(path)]
 
-    sentences = divide_into_sentences(lines)
+    return divide_into_sentences(lines)
 
-    return [[parse_word(word) for word in sentence] for sentence in sentences]
+def analyzed_sentences():
+    return [[parse_word(word) for word in sentence] for sentence in sentences()]
 
 def run():
     return sentences()
