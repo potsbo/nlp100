@@ -10,7 +10,10 @@ data/jawiki-country.json.gz: data
 	curl $(HOST)/$@ > $@
 
 data/jawiki-country.json: data/jawiki-country.json.gz data
-	gzip -d $<
+	gzip -d < $< > $@
+
+data/020.txt: data/jawiki-country.json data
+	python 020.py
 
 data/hightemp.txt data/neko.txt: data
 	curl $(HOST)/$@ > $@
@@ -21,5 +24,3 @@ data/neko.txt.mecab: data/neko.txt data
 data/neko.txt.cabocha: data/neko.txt data
 	cabocha $< > $@
 
-data/020.txt: data/jawiki-country.json data
-	python 020.py
