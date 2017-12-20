@@ -17,6 +17,9 @@ class Morph:
         attrs = [self.surface, self.base, self.pos, self.pos1]
         return ','.join(attrs)
 
+    def is_symbol(self):
+        return self.pos == '記号'
+
 
 def run():
     words  = nlp30.sentences(path='./data/neko.txt.cabocha')[2]

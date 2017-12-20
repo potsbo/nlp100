@@ -23,8 +23,11 @@ class Chunk:
     def take_src(self, index):
         self.srcs.append(index)
 
-    def surface(self):
-        return ''.join([m.surface for m in self.morphs])
+    def surface(self, exclude_symbols=False):
+        morphs = self.morphs
+        if exclude_symbols:
+            morphs = [m for m in morphs if not m.is_symbol()]
+        return ''.join([m.surface for m in morphs])
 
     def string(self):
         return ' '.join([self.surface(), str(self.dst)])
@@ -42,16 +45,18 @@ def devide_into_chunks(words):
     chunks.append(chunk)
     return chunks
 
+def chunks():
+    sentences = nlp30.sentences(path='./data/neko.txt.cabocha')
+    sentences = [devide_into_chunks(sentence) for sentence in sentences]
+    return [[Chunk(chunk) for chunk in chunks] for chunks in sentences]
 
 def run():
-    sentence = nlp30.sentences(path='./data/neko.txt.cabocha')[7]
-    chunks = devide_into_chunks(sentence)
-    chunks = [Chunk(chunk) for chunk in chunks]
-    for chunk in chunks:
+    cs = chunks()[7]
+    for chunk in cs:
         src = chunk.idx
         dst = chunk.dst
-        chunks[dst].take_src(src)
-    return "\n".join([c.string() for c in chunks])
+        cs[dst].take_src(src)
+    return "\n".join([c.string() for c in cs])
 
 if __name__ == '__main__':
     print(run())
