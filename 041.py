@@ -23,6 +23,15 @@ class Chunk:
     def take_src(self, index):
         self.srcs.append(index)
 
+    def include_noun(self):
+        flags = [m.is_noun() for m in self.morphs]
+        return any(flags)
+
+    def include_verb(self):
+        flags = [m.is_verb() for m in self.morphs]
+        return any(flags)
+
+
     def surface(self, exclude_symbols=False):
         morphs = self.morphs
         if exclude_symbols:

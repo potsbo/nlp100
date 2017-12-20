@@ -20,6 +20,12 @@ class Morph:
     def is_symbol(self):
         return self.pos == '記号'
 
+    def is_noun(self):
+        return self.pos == '名詞'
+
+    def is_verb(self):
+        return self.pos == '動詞'
+
 
 def run():
     words  = nlp30.sentences(path='./data/neko.txt.cabocha')[2]
